@@ -1,0 +1,67 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+/* Estilo adicional para ajustar el logo */
+.navbar-brand img {
+height: 40px;
+width: auto;
+}
+
+
+/* Estilo para oscurecer las imágenes */
+.carousel-item {
+position: relative;
+}
+.carousel-overlay {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5); /* Oscurece la imagen */
+z-index: 1;
+}
+.carousel-caption {
+z-index: 2; /* Asegura que el texto esté por encima de la capa oscura */
+}
+
+
+/* Estilo para íconos de redes sociales */
+.social-icons i {
+font-size: 1.5rem;
+margin: 0 10px;
+color: white;
+transition: color 0.3s;
+}
+.social-icons i:hover {
+color: #007bff;
+}
+main {
+    flex: 1;
+}
+
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+}
+
+/* Clase que hará que el footer sea absoluto cuando se necesite */
+.footer-absolute {
+    position: absolute;
+    bottom: 0;
+}
+
+/* Clase por defecto, relative */
+.footer-relative {
+    position: relative;
+}
+
+#map { height: 480px; }
