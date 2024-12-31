@@ -19,4 +19,4 @@ ENV LOG_CHANNEL stderr
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
 # Comando de inicio del contenedor
-CMD ["/00-laravel-deploy.sh.sh"]
+CMD ["/00-laravel-deploy.sh"]
