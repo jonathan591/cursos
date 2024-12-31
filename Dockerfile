@@ -1,7 +1,7 @@
 FROM richarvey/nginx-php-fpm:1.7.2
 
 # Copiar los archivos de la aplicación al contenedor
-COPY . .
+COPY . /var/www/html
 
 # Configuración de la imagen
 ENV SKIP_COMPOSER 0
@@ -17,7 +17,15 @@ ENV LOG_CHANNEL stderr
 
 # Permitir que Composer se ejecute como root
 ENV COMPOSER_ALLOW_SUPERUSER 1
+
+# Copiar el script al contenedor
+COPY scripts/00-laravel-deploy.sh /scripts/00-laravel-deploy.sh
+
+# Asignar permisos de ejecución al script
+RUN chmod +x /scripts/00-laravel-deploy.sh
+
 # Comando de inicio del contenedor
-CMD ["/scripts/00-laravel-deploy.sh"]
+CMD ["/bin/bash", "/scripts/00-laravel-deploy.sh"]
+
 
 
