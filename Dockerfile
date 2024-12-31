@@ -18,8 +18,5 @@ ENV LOG_CHANNEL stderr
 # Permitir que Composer se ejecute como root
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
-# Instalar las dependencias de Composer
-RUN composer install --no-dev --optimize-autoloader
-
 # Comando de inicio del contenedor
 CMD ["/start.sh"]
