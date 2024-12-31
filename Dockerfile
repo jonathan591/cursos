@@ -1,13 +1,16 @@
 FROM richarvey/nginx-php-fpm:1.7.2
 
-# Actualizar paquetes y agregar repositorios de PHP específicos
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends software-properties-common && \
-    add-apt-repository ppa:ondrej/php && \
-    apt-get update
-
-# Instalar la versión específica de PHP y extensiones requeridas
-RUN apt-get install -y --no-install-recommends php8.1 php8.1-fpm php8.1-mbstring php8.1-pdo php8.1-mysql php8.1-xml php8.1-zip php8.1-curl
+# Actualizar paquetes y agregar repositorios de PHP específicos usando apk
+RUN apk update && \
+    apk add --no-cache \
+        php8.1 \
+        php8.1-fpm \
+        php8.1-mbstring \
+        php8.1-pdo \
+        php8.1-mysql \
+        php8.1-xml \
+        php8.1-zip \
+        php8.1-curl
 
 # Configurar PHP para que utilice la nueva versión
 RUN update-alternatives --set php /usr/bin/php8.1 && \
@@ -39,6 +42,7 @@ RUN chmod +x /scripts/00-laravel-deploy.sh
 
 # Comando de inicio del contenedor
 CMD ["/bin/bash", "/scripts/00-laravel-deploy.sh"]
+
 
 
 
