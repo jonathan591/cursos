@@ -1,6 +1,6 @@
 FROM richarvey/nginx-php-fpm:1.7.2
 FROM php:8.1-fpm
-
+RUN curl -sS https://getcomposer.org/installer | php
 # Copiar los archivos de la aplicación al contenedor
 COPY . /var/www/html
 
