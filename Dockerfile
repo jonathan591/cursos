@@ -1,6 +1,6 @@
 FROM richarvey/nginx-php-fpm:1.7.2
 
-# Actualizar paquetes y agregar repositorios de PHP específicos usando apk
+# Configuración del repositorio seguro
 RUN apk update && \
     apk add --no-cache \
         php8.1 \
@@ -42,6 +42,7 @@ RUN chmod +x /scripts/00-laravel-deploy.sh
 
 # Comando de inicio del contenedor
 CMD ["/bin/bash", "/scripts/00-laravel-deploy.sh"]
+
 
 
 
