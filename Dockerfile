@@ -1,4 +1,4 @@
-FROM richarvey/nginx-php-fpm:3.1.6
+FROM richarvey/nginx-php-fpm:latest
 
 # Copiar los archivos de la aplicación al contenedor
 COPY . .
