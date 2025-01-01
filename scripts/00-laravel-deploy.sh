@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 echo "Running composer"
 composer global remove hirak/prestissimo
-composer global update
+composer install 
 
 echo "Caching config..."
 php artisan config:cache
